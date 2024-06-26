@@ -12,12 +12,12 @@ const Map = ({ coordinates, setCoordinates, setBounds, places }) => {
     console.log("Map loaded successfully!");
   };
 
-  const key = process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY;
+  // const key = process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY;
 
   return (
     <Box width={"full"} height={"full"}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key }}
+        bootstrapURLKeys={{ key: "AIzaSyDDvK-oGaKsn7RT7WWxtbIpJ8byHdxFzfk" }}
         defaultCenter={coordinates}
         center={coordinates}
         defaultZoom={10}

@@ -30,7 +30,7 @@ const Home = () => {
     const filteredData = places.filter((place) => place.rating > ratings);
     setFilteredPlaces(filteredData);
     console.log({ ratings });
-  }, [ratings, places]);
+  }, [ratings]);
 
   useEffect(() => {
     setIsLoading(true);
