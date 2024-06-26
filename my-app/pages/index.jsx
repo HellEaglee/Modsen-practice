@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import List from "../components/List";
 import Map from "../components/Map";
-import PlaceDetail from "../components/PlaceDetail";
 import { getPlacesData } from "./api";
-import Head from "next/head";
+import Script from 'next/script';
 
 const Home = () => {
   const [places, setPlaces] = useState([]);
@@ -17,7 +16,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    // get the users current location on intial login
+    // get the user's current location on initial login
 
     navigator.geolocation.getCurrentPosition(
       ({ coords: { latitude, longitude } }) => {
@@ -31,7 +30,7 @@ const Home = () => {
     const filteredData = places.filter((place) => place.rating > ratings);
     setFilteredPlaces(filteredData);
     console.log({ ratings });
-  }, [ratings]);
+  }, [ratings, places]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -53,9 +52,10 @@ const Home = () => {
       maxHeight={"100vh"}
       position={"relative"}
     >
-      <Head>
-        <script src={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDDvK-oGaKsn7RT7WWxtbIpJ8byHdxFzfk`}></script>
-      </Head>
+      <Script
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDDvK-oGaKsn7RT7WWxtbIpJ8byHdxFzfk"
+        strategy="beforeInteractive"
+      />
 
       <Header
         setType={setType}

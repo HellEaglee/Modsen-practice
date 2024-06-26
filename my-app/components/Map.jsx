@@ -69,6 +69,7 @@ const Map = ({ coordinates, setCoordinates, setBounds, places }) => {
                   ? cardData?.photo?.images?.large?.url
                   : "https://explorelompoc.com/wp-content/uploads/2021/06/food_placeholder.jpg"
               }
+              alt={cardData?.name || "Place Image"}
             />
 
             <Text
